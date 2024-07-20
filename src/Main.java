@@ -1,25 +1,26 @@
+import java.util.ArrayList;
+
+
 public class Main {
     public static void main(String[] args) {
 
 
         Student[] students = parseMasterListFile("master_list.txt");
 
-        Student[] course1Students = new Student[0];
-        Student[] course2Students = new Student[0];
-        Student[] course3Students = new Student[0];
+        ArrayList<Student> course1Students = new ArrayList<>();
+        ArrayList<Student> course2Students = new ArrayList<>();
+        ArrayList<Student> course3Students = new ArrayList<>();
 
         for (Student student : students) {
             if (student.getCourse().equals("course 1")) {
-                course1Students = addStudentToArray(course1Students, student);
-            } else if (student.getCourse().equals("Course 2")){
-                course2Students = addStudentToArray(course2Students, student);
+                course1Students.add(student);
+            } else if (student.getCourse().equals("course 2")) {
+                course2Students.add(student);
             } else if (student.getCourse().equals("course 3")) {
-                course3Students = addStudentToArray(course3Students, student);
+                course3Students.add(student);
             }
 
         }
-
-
         sortStudentsByGrade(course1Students);
         sortStudentsByGrade(course2Students);
         sortStudentsByGrade(course3Students);
@@ -30,10 +31,10 @@ public class Main {
         writeStudentToCSV("course3.csv", course3Students);
     }
 
-    private static void writeStudentToCSV(String s, Student[] course1Students) {
+    private static void writeStudentToCSV(String s, ArrayList<Student> course1Students) {
     }
 
-    private static void sortStudentsByGrade(Student[] course1Students) {
+    private static void sortStudentsByGrade(ArrayList<Student> course1Students) {
 
     }
 
